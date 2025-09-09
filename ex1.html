@@ -23,9 +23,37 @@
                 // Invalid email: Email must contain the character @.
                 // Empty password: Password must be non-empty.
                 var errorMessages="";
-                
+                var form = document.getElementsByName(formName)[0];
+
+                //var form = document.forms[formName];
+
+                var id = form["id"].value;
+                var age = form["age"].value;
+                var email = form["email"].value;
+                var password = form["password"].value;
+
+                if (!(10<=age & age<=40)){
+                    errorMessages += "Age must be between 10 and 40.\n";
+                }
+                if (id.length > 10){
+                    errorMessages += "ID must have a maximum of 10 characters. \n";
+                }
+                if (!(email.includes('@'))){
+                    errorMessages += "Email must contain the character @. \n";
+                }
+                if (password.length==0){
+                    errorMessages += "Password must be non-empty. \n"
+                }
+                // console.log(errorMessages);
+                if (errorMessages.length > 0){
+                    alert(errorMessages);
+                    return false;
+                }
+                return true;
                 
             }
+
+            
      
          </script>
 </body>
