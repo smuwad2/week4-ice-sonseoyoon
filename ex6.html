@@ -4,7 +4,7 @@
 
     <h1>Shopping List</h1>
 
-    <select id="select_item">
+    <select id="select_item" onchange="additem()">
         <option value="NoteBook">Notebook</option>
         <option value="Jello">Jello</option>
         <option value="Spinach">Spinach</option>
@@ -19,8 +19,13 @@
     <script>
         
         // add code here
-        
-        
+        function additem(){
+      const newitem = document.getElementById("select_item").value;
+      const liElem = document.createElement("li");
+      liElem.innerText = newitem;
+      let ulElem = document.getElementById("shopList");
+      ulElem.appendChild(liElem);
+        }
     </script>
 
     
